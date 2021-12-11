@@ -1,0 +1,14 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    string = "red yellow fox bite orange goose beeeeeeeeeeep"
+    vowels = 'aeiou'
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/7199#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Fri, 10 Dec 2021 16:18:19 UTC
+record: -1
