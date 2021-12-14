@@ -44,9 +44,11 @@ class CoffeeMachine:
         self.__collected_money = 0
 
     def get_scarce_resource(self, chosen_coffee):
-        if isinstance(chosen_coffee, MilkedCoffee):
-            if chosen_coffee.milk > self.__resources['milk']:
-                return 'milk'
+        if (
+            isinstance(chosen_coffee, MilkedCoffee)
+            and chosen_coffee.milk > self.__resources['milk']
+        ):
+            return 'milk'
 
         if chosen_coffee.water > self.__resources['water']:
             return 'water'
@@ -148,25 +150,25 @@ def main():
     while True:
         action = get_main_action()
 
-        if action != 'exit':
-            print()
-            choice = None
-            fillable = None
-
-            if action == 'buy':
-                choice = get_coffee_type(machine)
-
-                if choice is None:
-                    print()
-                    continue
-            elif action == 'fill':
-                fillable = get_fillables()
-
-            machine.execute_action(action, choice=choice, resources=fillable)
-
-            print()
-        else:
+        if action == 'exit':
             break
+
+        print()
+        choice = None
+        fillable = None
+
+        if action == 'buy':
+            choice = get_coffee_type(machine)
+
+            if choice is None:
+                print()
+                continue
+        elif action == 'fill':
+            fillable = get_fillables()
+
+        machine.execute_action(action, choice=choice, resources=fillable)
+
+        print()
 
 
 main()
