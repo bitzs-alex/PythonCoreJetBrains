@@ -1,0 +1,14 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    def select_dates(potential_dates):
+        ...
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/9671#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 21 Dec 2021 04:54:09 UTC
+record: -1
