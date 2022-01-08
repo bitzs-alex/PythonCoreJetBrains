@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="be0f04d4-8639-4f28-b934-99a81d3d80cd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/task/chute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Static Code Analyzer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/externalDependencies.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageData" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageRecordIndex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/Analyze arguments and variables/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/Analyze arguments and variables/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/Analyze multi-file projects/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/Analyze multi-file projects/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/Check names according to PEP8/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/Check names according to PEP8/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/New checks/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/New checks/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/Search for long lines/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/Search for long lines/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/lesson-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/task/analyzer/check.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/task/test/test_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/task/test/test_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/task/test/test_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/task/test/test_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/task/test/test_5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Static Code Analyzer/task/test/test_6.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Check the truth/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Check the truth/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Check the truth/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Check the truth/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Extraterrestrial life/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Extraterrestrial life/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Extraterrestrial life/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Extraterrestrial life/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Find beautiful identity/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Find beautiful identity/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Find beautiful identity/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Find beautiful identity/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Find your list/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Find your list/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Find your list/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Find your list/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Flying high/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Flying high/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Flying high/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Flying high/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Print book info/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Print book info/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Print book info/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Print book info/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Theory/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Theory/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Theory/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/Theory/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Identity testing/lesson-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Cook book/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Cook book/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Cook book/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Cook book/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Flower taxonomy/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Flower taxonomy/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Flower taxonomy/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Flower taxonomy/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Tallest people/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Tallest people/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Tallest people/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Tallest people/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Theory/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Theory/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Theory/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Theory/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Tracklist/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Tracklist/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Tracklist/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Tracklist/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Translator/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Translator/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Translator/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/Translator/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Kwargs/lesson-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Cat cafés/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Cat cafés/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Cat cafés/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Cat cafés/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Count up the squares/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Count up the squares/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Count up the squares/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Count up the squares/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Palindrome/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Palindrome/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Palindrome/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Palindrome/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Prime number/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Prime number/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Prime number/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Prime number/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/The mean/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/The mean/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/The mean/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/The mean/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Theory/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Theory/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Theory/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/Theory/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Loop control statements/lesson-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/section-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/All of them/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/All of them/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Faster translation/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Faster translation/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Over the internet/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Over the internet/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Repeater/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Repeater/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Simultaneous translation/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Simultaneous translation/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Translations/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Translations/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Unexpected/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Multilingual Online Translator/Unexpected/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Topics/Argparse module/Elementary, my dear Holmes_/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Topics/Argparse module/Elementary, my dear Holmes_/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Topics/Argparse module/Elementary, my dear Holmes_/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Topics/Argparse module/Elementary, my dear Holmes_/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Topics/Argparse module/Simple program/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Topics/Argparse module/Simple program/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/Topics/Argparse module/Theory/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/Topics/Argparse module/Theory/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Multilingual Online Translator/course-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Multilingual Online Translator/course-remote-info.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Static Code Analyzer/task/analyzer/code_analyzer.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="22xhmhNFQXzIMgRtjgm5T8HlMck" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+  </component>
+  <component name="RunManager" selected="Python.code_analyzer">
+    <configuration name="code_analyzer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Static Code Analyzer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Static Code Analyzer/task/analyzer" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Static Code Analyzer/task/analyzer/code_analyzer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Static Code Analyzer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Topics/Identity testing/Find your list" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Topics/Identity testing/Find your list/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.code_analyzer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be0f04d4-8639-4f28-b934-99a81d3d80cd" name="Changes" comment="" />
+      <created>1640785305921</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640785305921</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
