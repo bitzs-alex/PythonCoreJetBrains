@@ -1,4 +1,4 @@
 import re
 
 
-regex = ''
+regex = 'I love Python$'

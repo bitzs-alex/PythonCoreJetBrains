@@ -11,16 +11,35 @@ error_code_indention = "s002"
 UNNECESSARY_SEMICOLON = "Your program passed the line with an unnecessary semicolon or has an incorrect format. "
 error_code_semicolon = "s003"
 
-TWO_SPACES_BEFORE_COMMENT = "The program should warn about the line with less than 2 spaces before a comment."
+TWO_SPACES_BEFORE_COMMENT = "The program should warn about the line with less than 2 spaces before a comment. "
 error_code_comments = "s004"
 
 TODO = "Your program passed the line with TODO comment or has an incorrect format. "
 error_code_todo = "s005"
 
-TOO_MANY_BLANK_LINES = "Your program didn't warn about more than two blank lines between lines."
+TOO_MANY_BLANK_LINES = "Your program didn't warn about more than two blank lines between lines. "
 error_code_blank_lines = "s006"
 
-FALSE_ALARM = "False alarm. Your program warned about correct row."
+error_code_class_def_spaces = "s007"
+SPACES_AFTER_CLASS_FUNC = "Your program should warn about multiple spaces after keyword 'class' and 'def'. "
+
+error_code_class_name = "s008"
+CLASS_NAME = "The program should warn about incorrect class name. "
+
+error_code_func_name = "s009"
+FUNC_NAME = "The program passed the function with the name not in snake_case style. "
+
+error_code_arg_name = "s010"
+ARG_NAME = "Your program should warn about function argument written not in snake_case style. "
+
+error_code_var_func_name = "s011"
+VAR_FUNC_NAME = "The program omitted warning about incorrect variable name in the function's body. " \
+                "It should be written in the snake_case style. "
+
+error_code_default_argument_is_mutable = "s012"
+MUTABLE_ARG = "The program didn't warn about mutable function argument. "
+
+FALSE_ALARM = "False alarm. Your program warned about correct line. "
 
 cur_dir = os.path.abspath(os.curdir)
 
@@ -29,127 +48,19 @@ class AnalyzerTest(StageTest):
     def generate(self) -> List[TestCase]:
         return [TestCase(args=[f"test{os.sep}test_1.py"], check_function=self.test_1),
                 TestCase(args=[f"test{os.sep}test_2.py"], check_function=self.test_2),
-                TestCase(args=[f"test{os.sep}test_3.py"], check_function=self.test_3),
-                TestCase(args=[f"test{os.sep}test_4.py"], check_function=self.test_4),
-                TestCase(args=[f"test{os.sep}test_5.py"], check_function=self.test_5),
-                TestCase(args=[f"test{os.sep}test_6.py"], check_function=self.test_6),
-                TestCase(args=[cur_dir + f"{os.sep}test"], check_function=self.test_7)]
+                TestCase(args=[f"test{os.sep}this_stage{os.sep}test_3.py"], check_function=self.test_3),
+                TestCase(args=[f"test{os.sep}this_stage{os.sep}test_4.py"], check_function=self.test_4),
+                TestCase(args=[f"test{os.sep}this_stage{os.sep}test_5.py"], check_function=self.test_5),
+                TestCase(args=[cur_dir + f"{os.sep}test{os.sep}this_stage"], check_function=self.test_common)]
 
-    # Check of indention violation
+    # Stages 1-2 tests
     def test_1(self, output: str, attach):
         file_path = f"test{os.sep}test_1.py"
         output = output.strip().lower().splitlines()
-        if not len(output) == 3:
-            return CheckResult.wrong("Incorrect number of warning messages.")
-        for line in output:
-            if re.search('line[\d]', line) is not None:
-                return CheckResult.wrong('Incorrect format of an error message')
-        if not output[0].startswith(f"{file_path}: line 2: {error_code_indention}"):
-            return CheckResult.wrong(INDENTATION + "Your program passed the row with single column indent.")
-        if not output[1].startswith(f"{file_path}: line 3: {error_code_indention}"):
-            return CheckResult.wrong(INDENTATION + "Your program passed the row with two columns indent.")
-        if not output[2].startswith(f"{file_path}: line 5: {error_code_indention}"):
-            return CheckResult.wrong(INDENTATION + "Your program passed the row with six columns indent.")
-        return CheckResult.correct()
-
-    # Test of semicolon violation
-    def test_2(self, output: str, attach):
-        file_path = f"test{os.sep}test_2.py"
-        output = output.strip().lower().splitlines()
-        if len(output) <= 1:
-            return CheckResult.wrong("It looks like there is no messages from your program.")
-
-        # negative tests
-        for item in output:
-            if item.startswith(f"{file_path}: line 1: {error_code_semicolon}"):
-                return CheckResult.wrong(FALSE_ALARM + "There was no any semicolons at all.")
-            if item.startswith(f"{file_path}: line 5: {error_code_semicolon}") or item.startswith(
-                    f"line 8 {error_code_semicolon}"):
-                return CheckResult.wrong(FALSE_ALARM + "The semicolon was a part of comment block")
-            if item.startswith(f"{file_path}: line 6: {error_code_semicolon}") or item.startswith(
-                    f"line 7 {error_code_semicolon}"):
-                return CheckResult.wrong(FALSE_ALARM + "The semicolon was a part of string")
-
-        # positive tests
-        if not len(output) == 3:
-            return CheckResult.wrong("Incorrect number of warning messages.")
-        for i, j in enumerate([2, 3, 4]):
-            if not output[i].startswith(f"{file_path}: line {j}: {error_code_semicolon}"):
-                return CheckResult.wrong(UNNECESSARY_SEMICOLON)
-        return CheckResult.correct()
-
-    # Test of todo_comments
-    def test_3(self, output: str, attach):
-        file_path = f"test{os.sep}test_3.py"
-        output = output.strip().lower().splitlines()
-        if len(output) <= 1:
-            return CheckResult.wrong("It looks like there is no messages from your program.")
-
-        # negative tests
-        for item in output:
-            if item.startswith(f"{file_path}: line 1: {error_code_todo}") or item.startswith(
-                    f"line 8 {error_code_todo}") or \
-                    item.startswith(f"line 9: {error_code_todo}"):
-                return CheckResult.wrong(FALSE_ALARM + "There was no any TODO comments")
-            if item.startswith(f"{file_path}: line 6: {error_code_todo}") or item.startswith(
-                    f"line 7 {error_code_todo}"):
-                return CheckResult.wrong(FALSE_ALARM + "TODO is inside of string")
-
-        # positive tests
-        if not len(output) == 4:
-            return CheckResult.wrong("A wrong number of warning messages. "
-                                     "Your program should warn about two mistakes in this test case")
-        for i, j in enumerate([2, 3, 4, 5]):
-            if not output[i].startswith(f"{file_path}: line {j}: {error_code_todo}"):
-                return CheckResult.wrong(TODO)
-
-        return CheckResult.correct()
-
-    # Blank lines test
-    def test_4(self, output, attach):
-        file_path = f"test{os.sep}test_4.py"
-        output = output.strip().lower().splitlines()
-        if len(output) != 1:
-            if len(output) == 0:
-                return CheckResult.wrong(TOO_MANY_BLANK_LINES)
-            if output[0].startswith(f"{file_path}: line 4: {error_code_blank_lines}"):
-                return CheckResult.wrong(FALSE_ALARM)
-            if not output[0].startswith(f"{file_path}: line 8: {error_code_blank_lines}"):
-                return CheckResult.wrong(TOO_MANY_BLANK_LINES)
-            else:
-                return CheckResult.wrong(TOO_MANY_BLANK_LINES)
-        return CheckResult.correct()
-
-    # Test of comments style
-    def test_5(self, output, attach):
-        file_path = f"test{os.sep}test_5.py"
-        output = output.strip().lower().splitlines()
-        if len(output) <= 1:
-            return CheckResult.wrong("It looks like there is no messages from your program.")
-
-        # negative tests
-        for item in output:
-            if item.startswith(f"{file_path}: line 1: {error_code_comments}"):
-                return CheckResult.wrong(FALSE_ALARM + "There is no comments at all.")
-            if item.startswith(f"{file_path}: line 2: {error_code_comments}"):
-                return CheckResult.wrong(FALSE_ALARM + "There is a correct line with comment")
-            if item.startswith(f"{file_path}: line 3: {error_code_comments}" or
-                               item.startswith(f"{file_path}: line 4: {error_code_comments}")):
-                return CheckResult.wrong(FALSE_ALARM + "It is a correct line with a comment after code.")
-
-        # positive test
-        for i, j in enumerate([6, 7]):
-            if not output[i].startswith(f"{file_path}: line {j}: {error_code_comments}"):
-                return CheckResult.wrong(TWO_SPACES_BEFORE_COMMENT)
-
-        return CheckResult.correct()
-
-    def test_6(self, output, attach):
-        file_path = f"test{os.sep}test_6.py"
-        output = output.strip().lower().splitlines()
 
         if len(output) != 9:
-            return CheckResult.wrong("It looks like there is no messages from your program.")
+            return CheckResult.wrong("A wrong number of warning messages. "
+                                     "Your program should warn about nine mistakes in this test case")
 
         if not (output[0].startswith(f"{file_path}: line 1: s004") or
                 output[7].startswith(f"{file_path}: line 13: s004")):
@@ -172,73 +83,147 @@ class AnalyzerTest(StageTest):
 
         return CheckResult.correct()
 
-    def test_7(self, output, attach):
-        file_1 = cur_dir.lower() + f"{os.sep}test{os.sep}test_1.py"
-        file_2 = cur_dir.lower() + f"{os.sep}test{os.sep}test_2.py"
-        file_3 = cur_dir.lower() + f"{os.sep}test{os.sep}test_3.py"
-        file_4 = cur_dir.lower() + f"{os.sep}test{os.sep}test_4.py"
-        file_5 = cur_dir.lower() + f"{os.sep}test{os.sep}test_5.py"
+    # Stage 4 tests
+    def test_2(self, output: str, attach):
+        file_path = f"test{os.sep}test_2.py"
+        output = output.strip().lower().splitlines()
+        if len(output) <= 1:
+            return CheckResult.wrong("It looks like there is no messages from your program.")
+
+        for issue in output:
+            if issue.startswith(f"{file_path}: line 6: ") or issue.startswith(f"{file_path}: line 10: "):
+                return CheckResult.wrong(FALSE_ALARM)
+
+        if not len(output) == 3:
+            return CheckResult.wrong("A wrong number of warning messages. "
+                                     "Your program should warn about three mistakes in this test case")
+        if not output[0].startswith(f"{file_path}: line 1: {error_code_class_def_spaces}"):
+            return CheckResult.wrong(SPACES_AFTER_CLASS_FUNC)
+        if not output[1].startswith(f"{file_path}: line 4: {error_code_class_name}"):
+            return CheckResult.wrong(CLASS_NAME)
+        if not output[2].startswith(f"{file_path}: line 14: {error_code_func_name}"):
+            return CheckResult.wrong(FUNC_NAME)
+
+        return CheckResult.correct()
+
+    # Default variable is mutable test
+    def test_3(self, output: str, attach):
+        file_path = f"test{os.sep}this_stage{os.sep}test_3.py"
+        output = output.strip().lower().splitlines()
+        if len(output) < 1:
+            return CheckResult.wrong("It looks like there is no messages from your program.")
+        for issue in output:
+            if issue.startswith(f"{file_path}: line 1: "):
+                return CheckResult.wrong(FALSE_ALARM)
+            if (issue.startswith(f"{file_path}: line 2: {error_code_default_argument_is_mutable}") or
+                    issue.startswith(f"{file_path}: line 6: {error_code_default_argument_is_mutable}") or
+                    issue.startswith(f"{file_path}: line 12: {error_code_default_argument_is_mutable}")):
+                return CheckResult.wrong(FALSE_ALARM + "The program pointed correct function arguments as mutable.")
+
+        if not len(output) == 1:
+            return CheckResult.wrong("A wrong number of warning messages. "
+                                     "Your program should warn about one mistake in this test case")
+
+        if not output[0].startswith(f"{file_path}: line 9: {error_code_default_argument_is_mutable}"):
+            return CheckResult.wrong(MUTABLE_ARG)
+
+        return CheckResult.correct()
+
+    # Argument name test
+    def test_4(self, output, attach):
+        file_path = f"test{os.sep}this_stage{os.sep}test_4.py"
         output = output.strip().lower().splitlines()
 
-        # test_1 file
-        if len(output) != 22:
+        if len(output) < 1:
+            return CheckResult.wrong("It looks like there is no messages from your program.")
+
+        for issue in output:
+            if issue.startswith(f"{file_path}: line 1: "):
+                return CheckResult.wrong(FALSE_ALARM)
+            if issue.startswith(f"{file_path}: line 6: {error_code_arg_name}"):
+                return CheckResult.wrong(FALSE_ALARM)
+            if issue.startswith(f"{file_path}: line 9: {error_code_arg_name}"):
+                return CheckResult.wrong(FALSE_ALARM + "Default value of argument was None.")
+
+        if not len(output) == 1:
+            return CheckResult.wrong("A wrong number of warning messages. "
+                                     "Your program should warn about one mistake in this test case")
+
+        if not output[0].startswith(f"{file_path}: line 2: {error_code_arg_name}"):
+            return CheckResult.wrong(ARG_NAME)
+
+        return CheckResult.correct()
+
+    # Variable name test
+    def test_5(self, output, attach):
+        file_path = f"test{os.sep}this_stage{os.sep}test_5.py"
+        output = output.strip().lower().splitlines()
+        if len(output) < 1:
+            return CheckResult.wrong("It looks like there is no messages from your program.")
+
+        for issue in output:
+            if issue.startswith(f"{file_path}: line 1: "):
+                return CheckResult.wrong(FALSE_ALARM)
+            if issue.startswith(f"{file_path}: line 6: {error_code_var_func_name}"):
+                return CheckResult.wrong(FALSE_ALARM + "It was a part of the string - not a variable. ")
+            if issue.startswith(f"{file_path}: line 8: {error_code_var_func_name}"):
+                return CheckResult.wrong(FALSE_ALARM + "The None keyword starts with a capital letter. ")
+
+        if not len(output) == 2:
+            return CheckResult.wrong("A wrong number of warning messages. "
+                                     "Your program should warn about two mistakes in this test case")
+        for i, j in enumerate([3, 9]):
+            if not output[i].startswith(f"{file_path}: line {j}: {error_code_var_func_name}"):
+                return CheckResult.wrong(VAR_FUNC_NAME)
+
+        return CheckResult.correct()
+
+    def test_common(self, output, attach):
+        file_1 = cur_dir.lower() + f"{os.sep}test{os.sep}this_stage{os.sep}test_3.py"
+        file_2 = cur_dir.lower() + f"{os.sep}test{os.sep}this_stage{os.sep}test_4.py"
+        file_3 = cur_dir.lower() + f"{os.sep}test{os.sep}this_stage{os.sep}test_5.py"
+
+        output = output.strip().lower().splitlines()
+
+        if len(output) != 4:
             return CheckResult.wrong("It looks like there is an incorrect number of error messages. "
-                                     f"Expected 22 lines, found {len(output)}")
-        if not output[0].startswith(f"{file_1}: line 2: {error_code_indention}"):
-            return CheckResult.wrong(INDENTATION + "Your program passed the row with single column indent.")
-        if not output[1].startswith(f"{file_1}: line 3: {error_code_indention}"):
-            return CheckResult.wrong(INDENTATION + "Your program passed the row with two columns indent.")
-        if not output[2].startswith(f"{file_1}: line 5: {error_code_indention}"):
-            return CheckResult.wrong(INDENTATION + "Your program passed the row with six columns indent.")
+                                     f"Expected 4 lines, found {len(output)}")
 
         # negative tests
-        for item in output:
-            if item.startswith(f"{file_2}: line 1: {error_code_semicolon}"):
-                return CheckResult.wrong(FALSE_ALARM + "There was no any semicolons at all.")
-            if item.startswith(f"{file_2}: line 5: {error_code_semicolon}") or item.startswith(
-                    f"line 8 {error_code_semicolon}"):
-                return CheckResult.wrong(FALSE_ALARM + "The semicolon was a part of comment block")
-            if item.startswith(f"{file_2}: line 6: {error_code_semicolon}") or item.startswith(
-                    f"line 7 {error_code_semicolon}"):
-                return CheckResult.wrong(FALSE_ALARM + "The semicolon was a part of string")
+        for issue in output:
+            if issue.startswith(f"{file_1}: line 1: "):
+                return CheckResult.wrong(FALSE_ALARM)
+            if (issue.startswith(f"{file_1}: line 2: {error_code_default_argument_is_mutable}") or
+                    issue.startswith(f"{file_1}: line 6: {error_code_default_argument_is_mutable}") or
+                    issue.startswith(f"{file_1}: line 12: {error_code_default_argument_is_mutable}")):
+                return CheckResult.wrong(FALSE_ALARM + "The program pointed correct function arguments as mutable.")
 
-            if item.startswith(f"{file_3}: line 1: {error_code_todo}") or item.startswith(
-                    f"line 8 {error_code_todo}") or \
-                    item.startswith(f"line 9: {error_code_todo}"):
-                return CheckResult.wrong(FALSE_ALARM + "There was no any TODO comments")
-            if item.startswith(f"{file_3}: line 6: {error_code_todo}") or item.startswith(
-                    f"line 7 {error_code_todo}"):
-                return CheckResult.wrong(FALSE_ALARM + "TODO is inside of string")
+            if issue.startswith(f"{file_2}: line 1: "):
+                return CheckResult.wrong(FALSE_ALARM)
+            if issue.startswith(f"{file_2}: line 6: {error_code_arg_name}"):
+                return CheckResult.wrong(FALSE_ALARM)
+            if issue.startswith(f"{file_2}: line 9: {error_code_arg_name}"):
+                return CheckResult.wrong(FALSE_ALARM + "Default value of argument was None.")
 
-            if item.startswith(f"{file_5}: line 1: {error_code_comments}"):
-                return CheckResult.wrong(FALSE_ALARM + "There is no comments at all.")
-            if item.startswith(f"{file_5}: line 2: {error_code_comments}"):
-                return CheckResult.wrong(FALSE_ALARM + "There is a correct line with comment")
-            if item.startswith(f"{file_5}: line 3: {error_code_comments}" or
-                               item.startswith(f"{file_5}: line 4: {error_code_comments}")):
-                return CheckResult.wrong(FALSE_ALARM + "It is a correct line with a comment after code.")
-
-        # test_2 file
-        for i, j in enumerate([2, 3, 4]):
-
-            if not output[i + 3].startswith(f"{file_2}: line {j}: {error_code_semicolon}"):
-                return CheckResult.wrong(UNNECESSARY_SEMICOLON)
+            if issue.startswith(f"{file_3}: line 1: "):
+                return CheckResult.wrong(FALSE_ALARM)
+            if issue.startswith(f"{file_3}: line 6: {error_code_var_func_name}"):
+                return CheckResult.wrong(FALSE_ALARM + "It was a part of the string - not a variable. ")
+            if issue.startswith(f"{file_3}: line 8: {error_code_var_func_name}"):
+                return CheckResult.wrong(FALSE_ALARM + "The None keyword starts with a capital letter. ")
 
         # test_3 file
-        for i, j in enumerate([2, 3, 4, 5]):
-            if not output[i + 6].startswith(f"{file_3}: line {j}: {error_code_todo}"):
-                return CheckResult.wrong(TODO)
+        if not output[0].startswith(f"{file_1}: line 9: {error_code_default_argument_is_mutable}"):
+            return CheckResult.wrong(MUTABLE_ARG)
 
         # test_4 file
-        if output[10].startswith(f"{file_4}: line 4: {error_code_blank_lines}"):
-            return CheckResult.wrong(FALSE_ALARM)
-        if not output[10].startswith(f"{file_4}: line 8: {error_code_blank_lines}"):
-            return CheckResult.wrong(TOO_MANY_BLANK_LINES)
+        if not output[1].startswith(f"{file_2}: line 2: {error_code_arg_name}"):
+            return CheckResult.wrong(ARG_NAME)
 
         # test_5 file
-        for i, j in enumerate([6, 7]):
-            if not output[i + 11].startswith(f"{file_5}: line {j}: {error_code_comments}"):
-                return CheckResult.wrong(TWO_SPACES_BEFORE_COMMENT)
+        for i, j in enumerate([3, 9]):
+            if not output[i + 2].startswith(f"{file_3}: line {j}: {error_code_var_func_name}"):
+                return CheckResult.wrong(VAR_FUNC_NAME)
 
         return CheckResult.correct()
 

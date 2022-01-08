@@ -1,5 +1,8 @@
 def object_with_beautiful_identity():
-    for i in range(10_000):
+    final_val  = 10_000
+    for i in range(final_val):
         # Change the next line
-        if ...:
+        if str(id(i)).endswith('888'):
             return i
+    
+    return -1

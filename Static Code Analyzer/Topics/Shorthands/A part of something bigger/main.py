@@ -1,4 +1,4 @@
 import re
 
 
-regex = ''
+regex = r'^python\w'
