@@ -1,0 +1,19 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    import nltk
+
+
+    poem = ['Twinkle', ',', 'twinkle', ',', 'little', 'star', ',',
+            'How', 'I', 'wonder', 'what', 'you', 'are', '.',
+            'Up', 'above', 'the', 'world', 'so', 'high', ',',
+            'Like', 'a', 'diamond', 'in', 'the', 'sky', '.']
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10440#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 16 Jan 2022 14:10:15 UTC
+record: -1

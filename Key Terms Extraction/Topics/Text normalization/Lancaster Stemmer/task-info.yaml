@@ -1,0 +1,23 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    from nltk.stem import LancasterStemmer
+
+
+    # the following line reads a text from the input and converts it into a list
+    sent = input().split()
+
+    # write your code here
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10459#comment
+status: Solved
+feedback:
+  message: |-
+    <html>[+] Test #1. OK
+    [+] Test #2. OK
+
+    2 of 2 test(s) passed.</html>
+  time: Sun, 16 Jan 2022 12:11:40 UTC
+record: -1

@@ -1,0 +1,132 @@
+<h2>POS tagging</h2>
+<html>
+ <head></head>
+ <body>
+  <h5>What is POS-tagging?</h5> 
+  <p>To start with, we need to define what a <strong>part of speech</strong> is. Let's go back to elementary school. We know that all words can be divided into different classes, such as, for example, adverbs, adjectives, nouns, and verbs. These categories are called <strong>parts of speech</strong> and it's a basic concept for natural language processing. </p> 
+  <p>So, part-of-speech tagging is the process of classifying words into such lexical categories. Sometimes, it is also called <strong>word-category disambiguation</strong> or <strong>grammatical tagging</strong>.</p> 
+  <p>POS-tagging is a very important NLP procedure. It is a step of text preprocessing, and its results may be used to improve the performance of various NLP tasks, such as lemmatization (a procedure that reduces word forms to one root form), semantic analysis of texts, machine translation, and many others.</p> 
+  <h5>POS-tagging in NLTK </h5> 
+  <p>POS-tags are assigned to words with the help of a POS-tagger. But how does it work? There are many ways in different libraries to label words with a POS-tag, but in this topic, we will learn how to do it with NLTK for English.</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   NLTK functionality for different languages varies, so when you work with languages other than English, it may be necessary to find some other library for POS-tagging.
+  </div>
+  <p></p> 
+  <p>NLTK uses a pre-trained model for POS-tagging. It works with a tokenized text only, so you need to split your text into tokens beforehand. You can see how NLTK tags one sentence below:</p> 
+  <pre><code class="language-python">import nltk
+
+
+nltk.download('averaged_perceptron_tagger')  # download the tagger
+
+text = ['there', 'is', 'a', 'dwarf', 'looking', 'out', 'of', 'the', 'window', '!']
+print(nltk.pos_tag(text))
+# [('there', 'EX'), ('is', 'VBZ'), ('a', 'DT'), ('dwarf', 'NN'), ('looking', 'VBG'), ('out', 'IN'), ('of', 'IN'), ('the', 'DT'), ('window', 'NN'), ('!', '.')]</code></pre> 
+  <p>Great! We converted the sentence into a list of tuples consisting of words and tags. Now, we need to read tags so let's learn more about it.</p> 
+  <h5>POS-tags</h5> 
+  <p>A set of tags is called a <strong>tagset</strong>. The way we classify words into such categories may depend on the particular task at hand and a particular system of notation, so tagsets may differ. Bear in mind that tagsets may vary depending on the language you work with. Here you can see some examples of tagsets for the English language. In general, for English, NLTK uses Penn Treebank's POS tagset, one of the most popular. The tagsets are called based on the text resources they are used at; below is a list of them with brief descriptions:</p> 
+  <ul> 
+   <li>Penn Treebank – the first large-scale treebank (developed in the LINK Laboratory, University of Pennsylvania);</li> 
+   <li>Brown Corpus – The Brown University Standard Corpus of Present-Day American English (contains 500 samples of English-language text);</li> 
+   <li>LOB Corpus – Lancaster-Oslo-Bergen Corpus (a million-word collection of British English texts);</li> 
+   <li>BNC – British National Corpus (a 100-million-word text corpus of samples of written and spoken English).</li> 
+  </ul> 
+  <p> You can see how tagsets vary in these systems in the table below: </p> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td> <p><strong>POS</strong></p> </td> 
+     <td> <p><strong>Penn Treebank</strong></p> </td> 
+     <td> <p><strong>Brown Corpus</strong></p> </td> 
+     <td> <p><strong>LOB Corpus</strong></p> </td> 
+     <td> <p><strong>BNC2 </strong></p> </td> 
+     <td> <p><strong>Examples</strong></p> </td> 
+    </tr> 
+    <tr> 
+     <td> <p><strong>Adjective</strong></p> </td> 
+     <td> <p>JJ</p> </td> 
+     <td> <p>JJ</p> </td> 
+     <td> <p>JJ</p> </td> 
+     <td> <p>AJ0</p> </td> 
+     <td> <p>gorgeous, attractive</p> </td> 
+    </tr> 
+    <tr> 
+     <td> <p><strong>Adjective, comparative</strong></p> </td> 
+     <td> <p>JJR</p> </td> 
+     <td> <p>JJR</p> </td> 
+     <td> <p>JJR</p> </td> 
+     <td> <p>AJC</p> </td> 
+     <td> <p>better</p> </td> 
+    </tr> 
+    <tr> 
+     <td> <p><strong>Superlative adjective</strong></p> </td> 
+     <td> <p>JJS</p> </td> 
+     <td> <p>JJS</p> </td> 
+     <td> <p>JJT</p> </td> 
+     <td> <p>AJS</p> </td> 
+     <td> <p>best</p> </td> 
+    </tr> 
+    <tr> 
+     <td> <p><strong>The -ing form of the verb</strong></p> </td> 
+     <td> <p>VBG</p> </td> 
+     <td> <p>VBG</p> </td> 
+     <td> <p>VBG</p> </td> 
+     <td> <p>VHG</p> </td> 
+     <td> <p>yelling, playing</p> </td> 
+    </tr> 
+    <tr> 
+     <td> <p><strong>Reflexive pronoun</strong></p> </td> 
+     <td> <p>-</p> </td> 
+     <td> <p>-</p> </td> 
+     <td> <p>PPL\PPLS</p> </td> 
+     <td> <p>PNX</p> </td> 
+     <td> <p>herself, myself</p> </td> 
+    </tr> 
+    <tr> 
+     <td> <p><strong>The present tense forms of the verb</strong></p> </td> 
+     <td> <p>VBP\VBZ</p> </td> 
+     <td> <p>VBP\VBZ</p> </td> 
+     <td> <p>VBZ (3rd person singular)</p> </td> 
+     <td> <p>VBB</p> </td> 
+     <td> <p>see, goes</p> </td> 
+    </tr> 
+    <tr> 
+     <td> <p><strong>Verb, the base form</strong></p> </td> 
+     <td> <p>VB</p> </td> 
+     <td> <p>VB</p> </td> 
+     <td> <p>VB</p> </td> 
+     <td> <p>VDB</p> </td> 
+     <td> <p>drive, get</p> </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <p>Look at the first example in our sentence. There are some elements such as a gerund '<em>looking</em>' or a 3rd person singular present verb '<em>is</em>' which are verbs, but they have their tags. Such tags are called <em>unsimplified,</em> most of them have suffixes that represent different variants of usual tags, for example, <em>VBZ</em> for 3rd person singular present or <em>VBG</em> for present participle.</p> 
+  <p>You can find more information about tags from the Penn Treebank that are used in NLTK by typing <code class="language-python">nltk.help.upenn_tagset()</code>: a complete list of tags with their explanations and examples will be shown. You can also get information about a particular tag by specifying it in the parentheses:</p> 
+  <pre><code class="language-python">nltk.help.upenn_tagset('VBG')
+# VBG: verb, present participle or gerund
+#    telegraphing stirring focusing angering judging stalling lactating
+#    hankerin alleging veering capping approaching traveling besieging
+#    encrypting interrupting erasing wincing ...</code></pre> 
+  <h5>POS-disambiguation</h5> 
+  <p>POS-tagging is not that easy all the time. Sometimes, the same form of a word, for example, '<em>play</em>', may be a noun or a verb, depending on the context. This is called <strong>ambiguity</strong>, meaning that the tag we should assign to the word is ambiguous in such cases. The process of resolving the ambiguity, understanding which tag is correct, is called <strong>disambiguation</strong>.</p> 
+  <p>Have a look at this example:</p> 
+  <pre><code class="language-python">sentence = ['My', 'peer', 'will', 'peer', 'through', 'the', 'window', 'hole', '.']
+print(nltk.pos_tag(sentence))
+# [('My', 'PRP$'), ('peer', 'NN'), ('will', 'MD'), ('peer', 'VB'), ('through', 'IN'), ('the', 'DT'), ('window', 'NN'), ('hole', 'NN'), ('.', '.')]</code></pre> 
+  <p>As you can see, <em>'peer</em>' comes up first as a noun and then as a verb. Both these words are the same, but NLTK labels them differently. How does this happen?</p> 
+  <p>The NLTK tagger deals with ambiguity with the help of the context: trained on a huge tagged corpus, it is capable of analyzing the distribution of words in a text, so now, if you put '<em>to</em>' before '<em>peer</em>', the tagger will label it as a verb. Similarly, if you put '<em>the</em>' before a word, the tagger will label it as a noun.</p> 
+  <p>However, the result of POS-tagging in NLTK is not always perfect. Let's find out what happens if we give the tagger a weird but possible sentence <em>'The old man the boats.'</em>:</p> 
+  <p><code class="language-python">[('The', 'DT'), ('old', 'JJ'), ('man', 'NN'), ('the', 'DT'), ('boats', 'NNS'), ('.', '.')]</code></p> 
+  <p>As expected, NLTK defined '<em>man</em>' as a noun and it seems like we don't have a verb here. However, the word <em>'man</em>' here is a verb meaning to take one's place for service, and <em>'old'</em> is used to mean a group of old people. </p> 
+  <p>In tricky sentences like this one, sentences with errors, or just ambiguous ones, NLTK's tagger can make some mistakes, and you need to bear that in mind.</p> 
+  <h5>Summary</h5> 
+  <p>At this point, we have familiarized ourselves with one of the many possible ways to complete POS-tagging. There are many kinds of POS-tagging implemented in other libraries, but here we have learned the fundamental approach using NLTK.</p> 
+  <p>You have learned about:</p> 
+  <ul> 
+   <li>tagging a text with NLTK;</li> 
+   <li>different parts of speech, their tags, and tagsets;</li> 
+   <li>POS-ambiguity and how NLTK deals with it.</li> 
+  </ul> 
+  <p>Now it is time to practice!</p>
+ </body>
+</html>

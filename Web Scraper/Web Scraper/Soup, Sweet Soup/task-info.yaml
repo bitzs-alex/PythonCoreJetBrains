@@ -123,15 +123,6 @@ files:
     if __name__ == '__main__':
         WebScraperTest().run_tests()
   learner_created: false
-- name: Page 2/Daily_briefing_Explore_the_world_with_Leif_Penguinson.txt
-  visible: true
-  learner_created: true
-- name: Page 4/Daily_briefing_Mars’s_crust_has_layers_like_a_cake.txt
-  visible: true
-  learner_created: true
-- name: Page 3/Daily_briefing_The_biggest_retractions_of_the_year.txt
-  visible: true
-  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/11759#comment
 status: Solved
 feedback:

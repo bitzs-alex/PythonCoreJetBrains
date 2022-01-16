@@ -1,0 +1,11 @@
+<h2>Tricky POS-tag</h2>
+<html>
+ <head></head>
+ <body>
+  <p>This tricky sentence is fine for us, but may be confusing for the tagger:</p> 
+  <p><code class="java">sent = ['The', 'horse', 'raced', 'past', 'the', 'barn', 'fell', 'down', '.']</code></p> 
+  <p> If we tag the sentence above, the word '<em>raced</em>' will have the tag '<em>VBD</em>'. This tag is not correct, but we can make the sentence easier for the tagger:</p> 
+  <p><code class="java">sent = ['The', 'horse', 'that', 'was', 'raced', 'past', 'the', 'barn', 'fell', 'down', '.']</code></p> 
+  <p>In such case, the tag of the word '<em>raced</em>' will be correct. Write a code to tag this sentence with the help of NLTK and print the result for the word '<em>raced</em>' now.</p>
+ </body>
+</html><br><br><font color="gray">Memory limit: 512 MB</font><br><font color="gray">Time limit: 15 seconds</font><br><br>

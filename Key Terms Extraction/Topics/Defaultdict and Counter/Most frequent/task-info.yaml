@@ -1,0 +1,14 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    text = ("all I want is a proper cup of coffee made in a proper copper coffee pot. "
+            "I may be off my dot but I want a cup of coffee from a proper coffee pot.")
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/7996#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 16 Jan 2022 06:17:17 UTC
+record: -1

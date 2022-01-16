@@ -1,0 +1,6 @@
+content:
+- Defaultdict and Counter
+- The string module
+- Text normalization
+- POS tagging
+- TF-IDF vectorizer

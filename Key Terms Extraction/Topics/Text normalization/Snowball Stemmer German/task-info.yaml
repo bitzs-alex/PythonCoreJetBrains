@@ -1,0 +1,24 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    from nltk.stem import SnowballStemmer
+
+
+    # the following line reads a text from the input and converts it into a list
+    sent = input().split()
+
+    # write your code here
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10458#comment
+status: Solved
+feedback:
+  message: |-
+    <html>[+] Test #1. OK
+    [+] Test #2. OK
+    [+] Test #3. OK
+
+    3 of 3 test(s) passed.</html>
+  time: Sun, 16 Jan 2022 11:56:18 UTC
+record: -1

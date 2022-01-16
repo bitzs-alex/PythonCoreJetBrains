@@ -1,0 +1,97 @@
+<h2>Defaultdict and Counter</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Dictionary is an incredibly versatile data structure. However, it has its limitations. In this topic, we'll look at one special <code class="language-python">dict</code> method that makes working with dictionaries much easier as well as some dictionary-like objects useful in particular situations.</p> 
+  <h5 style="text-align: center;">Method dict.setdefault()</h5> 
+  <p>Often dictionaries are used to store frequencies of elements from some collection. You may want to store word counts from a text, or values from a list. How would you do it? Well, the obvious way is to loop through all the elements and increment the count of the element you've encountered by one. However, you have to check if the element has already been encountered, otherwise you may get a <code class="language-python">KeyError</code>. This may be tedious: you have to write an <code class="language-python">if</code> statement, or catch exceptions, or handle <code class="language-python">None</code> values (if you use <code class="language-python">dict.get()</code>).</p> 
+  <p>As you may have guessed, there are easier ways to deal with this. One of them is the <code class="language-python">dict.setdefault()</code> method.</p> 
+  <p>Let's check out an example. Suppose, we want to create a frequency dictionary for the text below.</p> 
+  <pre><code class="language-python"># long string with text
+text = ("Gambit is a chess opening in which a player risks one or more pawns "
+        "or a minor piece to gain an advantage in position")
+
+# convert text to list of words
+text_list = text.lower().split()</code></pre> 
+  <p>How can we use <code class="language-python">dict.setdefault()</code> to create a frequency dictionary? Well, the method takes two parameters: <code class="language-python">key</code> and optional <code class="language-python">default</code>. It returns the value of the key and if it is not present, sets it to default (or <code class="language-python">None</code>). Following this logic, for the frequency dictionary, the default value should be 0.</p> 
+  <pre><code class="language-python"># create empty dictionary
+freq_dict = {}
+
+# loop through text and count words
+for word in text_list:
+    # set the default value to 0
+    freq_dict.setdefault(word, 0)
+    # increment the value by 1
+    freq_dict[word] += 1
+
+# examples
+print(freq_dict["gambit"])  # 1
+print(freq_dict["a"])  # 3</code></pre> 
+  <p> As you can see, we've successfully created a frequency dictionary in virtually 3 lines of code! No need to handle exceptions or check conditions.</p> 
+  <p>The <code class="language-python">setdefault()</code> method is particularly useful when the value is a mutable object, for instance, a list or even another dictionary. Suppose, we want to create a dictionary of indexes of all occurrences in the list. This is how it can be done.</p> 
+  <pre><code class="language-python">index_dict = {}
+
+for index, word in enumerate(text_list):
+    index_dict.setdefault(word, []).append(index)
+
+# example
+print(index_dict["or"])  # [11, 14]</code></pre> 
+  <p>Here we use the <code class="language-python">enumerate</code> function to iterate over elements of <code class="language-python">text_list</code> and get their indexes at the same time. Since <code class="language-python">dict.setdefault()</code> returns the value for the key, we can directly append the new value to the list.</p> 
+  <p>This method is also handy when dealing with missing values. If we're not sure that some object is a key in the dictionary, we can just set its value in the process:</p> 
+  <pre><code class="language-python">print(freq_dict.setdefault("are", 0))  # 0</code></pre> 
+  <p>As a result of the code above, the word "are" will be added to <code class="language-python">freq_dict</code> with the value 0.</p> 
+  <h5 style="text-align: center;">collections.defaultdict</h5> 
+  <p>Along with the <code class="language-python">dict.setdefault()</code> method there is another way to manage default values: <code class="language-python">defaultdict</code> from the <code class="language-python">collections</code> module.</p> 
+  <p><code class="language-python">defaultdict</code> is a dictionary-like object defined in <code class="language-python">collections</code>. The only significant difference is that when creating a new dictionary, we can specify a <code class="language-python">default_factory</code> parameter. <code class="language-python">default_factory</code> should be a function-like object that determines the type or the value of the parameter. For example, the <code class="language-python">default_factory</code> can be a list function: <code class="language-python">list</code>. In this case, the default value of any object will be an empty list.</p> 
+  <p>In our example with the frequency dictionary, the <code class="language-python">default_factory</code> should be <code class="language-python">int</code>: the default value of the <code class="language-python">int()</code> function is 0. Let's see how that can be used:</p> 
+  <pre><code class="language-python">from collections import defaultdict
+
+freq_defaultdict = defaultdict(int)
+
+for word in text_list:
+    freq_defaultdict[word] += 1
+
+print(freq_defaultdict["chess"])  # 1</code></pre> 
+  <p></p>
+  <div class="alert alert-primary">
+   Note that you shouldn't call the function object you're setting as 
+   <code class="language-python">default_factory</code>!
+  </div>
+  <p></p> 
+  <p><code class="language-python">defaultdict</code> also makes it extremely easy to deal with missing keys because we have already defined a default value for any object:</p> 
+  <pre><code class="language-python">print(freq_defaultdict["python"])  # 0</code></pre> 
+  <p>As you can see, we don't really need to do anything: if you've defined the <code class="language-python">default_factory</code> parameter, dealing with missing keys doesn't cause any errors. Like with <code class="language-python">dict.setdefault()</code>, the missing keys are added to the <code class="language-python">defaultdict</code> if we try to check their values.</p> 
+  <h5 style="text-align: center;">collections.Counter</h5> 
+  <p>Now, all the ways of creating frequency dictionaries we've covered so far work perfectly fine. However, they require a bit of work, that is creating a dictionary and going through the list and counting the elements. You'll be happy to know that there is a very straightforward way to do it without all the work: <code class="language-python">Counter</code> object from <code class="language-python">collections</code>.</p> 
+  <p><code class="language-python">Counter</code> is another dictionary-like object used specifically for counting the elements of an iterable object. Take our example again:</p> 
+  <pre><code class="language-python">from collections import Counter
+
+freq_counter = Counter(text_list)
+
+print(freq_counter)
+# Counter({'a': 3, 'in': 2, 'or': 2, 'gambit': 1, 'is': 1, 'chess': 1, 'opening': 1,
+# 'which': 1, 'player': 1, 'risks': 1, 'one': 1, 'more': 1, 'pawns': 1, 'minor': 1,
+# 'piece': 1, 'to': 1, 'gain': 1, 'an': 1, 'advantage': 1, 'position': 1})</code></pre> 
+  <p>That's all it takes to create a <code class="language-python">Counter</code>, which is essentially a frequency dictionary! </p> 
+  <p>Another advantage of <code class="language-python">Counter</code> is that the count of a missing object is 0, no <code class="language-python">KeyErrors</code> are raised! However, the missing object isn't added to the dictionary if we try to check its value.</p> 
+  <pre><code class="language-python">print(freq_counter["alpaca"])  # 0</code></pre> 
+  <p><code class="language-python">Counter</code> supports most of <code class="language-python">dict</code> methods and also has some special methods of its own. For example, the <code class="language-python">most_common(n)</code> method, which returns a list of tuples of <strong>n</strong> most common elements with their counts. If <strong>n</strong> isn't specified, all elements are returned in the descending order of their frequencies.</p> 
+  <pre><code class="language-python">print(freq_counter.most_common(5))
+# [('a', 3), ('in', 2), ('or', 2), ('gambit', 1), ('is', 1)]
+print(freq_counter.most_common())
+# [('a', 3), ('in', 2), ('or', 2), ('gambit', 1), ('is', 1), ('chess', 1), ('opening', 1),
+# ('which', 1), ('player', 1), ('risks', 1), ('one', 1), ('more', 1), ('pawns', 1),
+# ('minor', 1), ('piece', 1), ('to', 1), ('gain', 1), ('an', 1), ('advantage', 1), ('position', 1)]</code></pre> 
+  <p>Note that since Python 3.7, <code class="language-python">Counter</code> preserves the insertion order of elements (just like <code class="language-python">dict</code>). So, elements with the same count are returned in the order of their appearance in the original collection.</p> 
+  <h5 style="text-align: center;">Summary</h5> 
+  <p>In this topic, we've seen how you can define default values for dictionary keys, deal with missing keys, and create different types of frequency dictionaries.</p> 
+  <p>To sum up,</p> 
+  <ul> 
+   <li><code class="language-python">dict.setdefault</code> is used to set a default value for a particular key;</li> 
+   <li><code class="language-python">collections.defaultdict</code> defines a default value for all objects;</li> 
+   <li><code class="language-python">collections.Counter</code> counts elements of an iterable object.</li> 
+  </ul> 
+  <p>For additional information about <code class="language-python">defaultdict</code> and <code class="language-python">Counter</code> you can check out the <a target="_blank" href="https://docs.python.org/3/library/collections.html#module-collections" rel="noopener noreferrer nofollow">official Python documentation</a>.</p> 
+  <p>We hope that you'll use these objects and methods in your projects!</p>
+ </body>
+</html>

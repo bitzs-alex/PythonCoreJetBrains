@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    import nltk
+
+
+    sent = ['The', 'horse', 'that', 'was', 'raced', 'past', 'the', 'barn', 'fell', 'down', '.']
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10441#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 16 Jan 2022 14:16:05 UTC
+record: -1
