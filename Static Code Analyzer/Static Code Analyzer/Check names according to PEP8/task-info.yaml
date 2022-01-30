@@ -1,5 +1,10 @@
 type: edu
 files:
+- name: analyzer/code_analyzer.py
+  visible: true
+  text: |
+    # write your code here
+  learner_created: false
 - name: test/test_1.py
   visible: false
   text: |
@@ -20,106 +25,6 @@ files:
     # hello hello hello;
     greeting = 'hello;'
     print('hello')  # ;
-  learner_created: false
-- name: test/test_3.py
-  visible: false
-  text: |
-    print('hello')
-    print('hello')  # TODO
-    print('hello')  # TODO # TODO
-    # todo
-    # TODO just do it
-    print('todo')
-    print('TODO TODO')
-    todo()
-    todo = 'todo'
-  learner_created: false
-- name: test/test_4.py
-  visible: false
-  text: |
-    print("hello")
-
-
-    print("bye")
-
-
-
-    print("check")
-  learner_created: false
-- name: test/test_5.py
-  visible: false
-  text: |-
-    print('hello!')
-    # just a comment
-    print('hello!')  #
-    print('hello!')  # hello
-
-    print('hello!') # hello
-    print('hello!')# hello
-  learner_created: false
-- name: test/test_6.py
-  visible: false
-  text: |
-    print('What\'s your name?') # reading an input
-    name = input();
-    print(f'Hello, {name}');  # here is an obvious comment: this prints greeting with a name
-
-
-    very_big_number = 11_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000
-    print(very_big_number)
-
-
-
-    def some_fun():
-        print('NO TODO HERE;;')
-        pass; # Todo something
-  learner_created: false
-- name: test/this_stage/test_7.py
-  visible: false
-  text: |
-    class CorrectOne:
-        pass
-
-
-    class spaces:
-        pass
-
-
-    class snake_case:
-        pass
-
-
-    class Inheritance(CorrectOne):
-        pass
-  learner_created: false
-- name: test/this_stage/test_8.py
-  visible: false
-  text: |
-    class      CorrectOne:
-        pass
-
-
-    class Inheritance(CorrectOne):
-        @staticmethod
-        def  test():
-            print("hello")
-  learner_created: false
-- name: test/this_stage/test_9.py
-  visible: false
-  text: |
-    def __init__():
-        def correct_function():
-            pass
-
-        pass
-
-
-    def Wow():
-        pass
-
-
-    def CamelCase():
-        pass
   learner_created: false
 - name: tests.py
   visible: false
@@ -441,14 +346,15 @@ files:
         print('NO TODO HERE;;')
         pass; # Todo something
   learner_created: true
-- name: analyzer/code_analyzer.py
+- name: test/this_stage/test_5.py
   visible: true
-  text: |
-    # write your code here
-  learner_created: false
+  learner_created: true
+- name: test/this_stage/test_4.py
+  visible: true
+  learner_created: true
+- name: test/this_stage/test_3.py
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/9906#comment
 status: Solved
-feedback:
-  message: Congratulations!
-  time: Thu, 06 Jan 2022 11:54:45 UTC
-record: 4
+record: 6

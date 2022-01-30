@@ -1,0 +1,14 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    def check_name(...):
+        ...
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/14932#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Fri, 28 Jan 2022 08:12:22 UTC
+record: -1

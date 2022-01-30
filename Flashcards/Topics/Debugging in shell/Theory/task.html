@@ -1,0 +1,74 @@
+<h2>Debugging in shell</h2>
+<html>
+ <head></head>
+ <body>
+  <p>You've already learned how to start the Python shell and experiment there with modules and functions. But the thing is, the more code you write, the higher chances to get a <strong>bug</strong>. A bug is an unexpected error in your code that is usually hard to find. The process of finding and fixing bugs is called <strong>debugging</strong>, and it's another thing the Python shell can be used for.</p> 
+  <p>IDE (Integrated Development Environment) is thought to be better for debugging, and we'll study how to use JetBrains PyCharm for this purpose in another topic. However, IDLE also provides useful tools for debugging, so let's see how it can be done.</p> 
+  <h5>Debugging</h5> 
+  <p>There may be different reasons to check your program: e.g. you get an exception in your code and don't understand where it comes from, or the code doesn't work as intended. In such cases, it's a good idea to use the shell to find out what's going wrong.</p> 
+  <p>Let's see how the debugger works in action. Say, we have written a function to generate passwords:</p> 
+  <pre><code class="language-python">import random
+import string
+
+
+def password_generator(length):
+    chars = string.ascii_letters + string.digits + string.punctuation
+    password = ''
+    for _ in range(length):
+        password += random.choice(chars)
+    return password</code></pre> 
+  <p>It works fine but let's improve it a bit so that it doesn't use confusing characters for a password, such as “0” and “O” or “1” and “l”:</p> 
+  <pre><code class="language-python">def password_generator(length):
+    chars = string.ascii_letters + string.digits + string.punctuation
+    confusing_chars = ('O', '0', '1', 'l')
+    password = ''
+    while not len(password) == length:
+        char = random.choice(chars)
+        if char in confusing_chars:
+            password += char
+    return password</code></pre> 
+  <p>After these changes our code doesn't work correctly: every password we get contains only those characters.</p> 
+  <pre><code class="language-no-highlight">&gt;&gt;&gt; password_generator(6)
+'1llO0O'</code></pre> 
+  <p>Using IDLE's debugger will help us find out what's happening inside the function.</p> 
+  <h5>Theory</h5> 
+  <p>First, import the modules <em>random </em>and <em>string</em>, then copy the function to IDLE and press <em>Enter</em> to see the prompt <samp>&gt;&gt;&gt;</samp> again. To initialize the debugging mode, click "<em>Debug</em>" --&gt; <em>"Debugger</em>" from the menu above. You'll see “<em>DEBUG ON</em>” in IDLE, and a new window will appear. Check all checkboxes so that we can investigate all options the IDLE debugger provides.</p> 
+  <p>To start debugging, just call the function from the shell, i.e. type <code class="language-python">password_generator(4)</code> and press <em>Enter</em>. The debugger window will change: it hasn't executed any code yet but we can see the line of code it has paused at, as well as global variables.</p> 
+  <p>Now, a few words about what can be found in this window.</p> 
+  <p style="text-align: center;"><img alt="" src="https://ucarecdn.com/4511e23c-2409-48b6-bc3e-690cab30ae28/-/crop/717x645/0,0/-/preview/"></p> 
+  <p>In area <strong>1</strong>, there are a number of buttons. With their help, we can control the process of debugging,</p> 
+  <ul> 
+   <li><strong>Go </strong>runs the program as usual until input is requested or until the program finishes. In our case, there would be no difference with the regular run of the program.</li> 
+   <li><strong>Step </strong>serves to go through the code line by line: the most helpful action when debugging. If the line to be executed calls a function, the debugger will go to the first line of the function definition ("stepping into" the function). If we press this button now, we will find ourselves at the line where the <code class="language-python">chars</code> variable is defined.</li> 
+   <li><strong>Over</strong> is similar to the "Step" button, except that if the statement to be executed has a function call in it, the debugger executes the function without showing any details: it "steps over" the function, returning the result and pausing again. However, in our example, if we press "Over" in the beginning, the result will be the same as with the regular run of the program: debugger will execute the <code class="language-python">password_generator()</code> function and pause; but this function is the only piece of code we have for debugging right now.</li> 
+   <li><strong>Out</strong> is used when we are inside some function's code. It finishes execution of the function as it would do regularly, returns the result, and pauses: we "step out" of the function. Instead of clicking "Step" repeatedly to jump out of the function, we can simply use "Out".</li> 
+   <li><strong>Quit</strong> stops the execution of the entire program. This is helpful if we must start debugging again from the beginning of the program.</li> 
+  </ul> 
+  <p>Area <strong>2 </strong>contains checkboxes:</p> 
+  <ul> 
+   <li>"<strong>Stack</strong>" is what we can see in area <strong>3</strong>. It shows which line and from where is executed.</li> 
+   <li>"<strong>Locals</strong>" (area <strong>4</strong>) and "<strong>Globals</strong>" (area <strong>5</strong>) contain lists of local and global variables as they change. Remember, local variables are those created inside a function whereas global variables are those created outside of any functions.</li> 
+   <li>"<strong>Source</strong>" is helpful when we use some functions or classes from other modules. If it is checked, the module source file will open when we go through lines addressing it, and the corresponding line in the module will be highlighted in gray. In our example, when we reach the line <code class="language-python">char = random.choice(chars)</code>, the file "<em>random.py</em>" will open so that we can see what is happening inside the function <code class="language-python">choice()</code> there.</li> 
+  </ul> 
+  <h5>Practice</h5> 
+  <p>Once we understand what's in this window, let's proceed to debug our function.</p> 
+  <p>Press the "Step" button several times and carefully look at what is happening in the debugger window. Once you have reached the line where our function initializes the <code class="language-python">char</code> variable, check the value of this variable. If you see that some line wasn't executed, it means that you need to double-check the line with the <code class="language-python">if</code> condition:</p> 
+  <p style="text-align: center;"><img alt="" height="164" src="https://ucarecdn.com/545c18eb-bf0f-478a-ab77-c89aadd4cc9b/" width="673"></p> 
+  <p>Ah, that’s it! The condition is wrong, we need to check if it’s NOT in <code class="language-python">confusing_chars</code>. Sometimes we need to sleep more, sometimes we need a coffee break, otherwise, we can make errors in our code.</p> 
+  <pre><code class="language-python">def password_generator(length):
+    chars = string.ascii_letters + string.digits + string.punctuation
+    confusing_chars = ('O', '0', '1', 'l')
+    password = ''
+    while not len(password) == length:
+        char = random.choice(chars)
+        if char not in confusing_chars:
+            password += char
+    return password</code></pre> 
+  <p>After changing this line your function works perfectly!</p> 
+  <pre><code class="language-no-highlight">&gt;&gt;&gt; password_generator(5)
+'wBxu9'</code></pre> 
+  <p>All glory to the Python shell and debugging! However, you might want to look at <a target="_blank" href="https://pythontutor.com/visualize.html#code=x_list%20%3D%20%5B1,%202,%203%5D%20%0Ay_list%20%3D%20%5B4,%205,%206%5D%0Az_list%20%3D%20%5B7,%208,%209%5D%20%0A%0As%20%3D%20list%28map%28lambda%20x,%20y,%20z%3A%20x%20%2B%20y%20%2B%20z,%20x_list,%20y_list,%20z_list%29%29%0A%0Aprint%28s%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer nofollow">this</a> visualization. It might help you to better understand how the code above works.</p> 
+  <h5>Conclusion</h5> 
+  <p>The debugging process in the Python shell is quite simple and clear: it allows a user to run a code line by line to find errors and fix them.</p>
+ </body>
+</html>
