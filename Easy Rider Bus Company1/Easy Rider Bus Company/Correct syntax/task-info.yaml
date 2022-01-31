@@ -1,53 +1,5 @@
 type: edu
 files:
-- name: easyrider/easyrider.py
-  visible: true
-  text: |
-    import json
-
-
-    class RiderBus:
-        def __init__(self, json_string):
-            self.errors = {}
-            self.bus_data = json.loads(json_string)
-            self.rules = {
-                'bus_id': 0,
-                'stop_id': 0,
-                'stop_name': '',
-                'next_stop': 0,
-                'stop_type': '',
-                'a_time': ''
-            }
-
-            for key in self.rules:
-                self.errors[key] = 0
-
-        def check_for_errors(self):
-            for bus in self.bus_data:
-                for key, value in bus.items():
-                    if type(value) == type(self.rules[key]):
-                        if key == 'stop_type':
-                            if len(value) > 1:
-                                self.errors[key] += 1
-                        elif self.rules[key] != 0 and not bool(value):
-                            self.errors[key] += 1
-                    else:
-                        self.errors[key] += 1
-
-        def display_errors(self):
-            total_errors = sum(self.errors.values())
-            # if total_errors:
-            print(f'Type and required field validation: {total_errors} errors')
-
-            for key, value in self.errors.items():
-                print(f"{key}: {value}")
-
-
-    json_string_input = input().strip()
-    rider = RiderBus(json_string_input)
-    rider.check_for_errors()
-    rider.display_errors()
-  learner_created: false
 - name: tests.py
   visible: false
   text: |
@@ -137,6 +89,54 @@ files:
 
     if __name__ == '__main__':
         EasyRiderStage2('easyrider.easyrider').run_tests()
+  learner_created: false
+- name: easyrider/easyrider.py
+  visible: true
+  text: |
+    import json
+
+
+    class RiderBus:
+        def __init__(self, json_string):
+            self.errors = {}
+            self.bus_data = json.loads(json_string)
+            self.rules = {
+                'bus_id': 0,
+                'stop_id': 0,
+                'stop_name': '',
+                'next_stop': 0,
+                'stop_type': '',
+                'a_time': ''
+            }
+
+            for key in self.rules:
+                self.errors[key] = 0
+
+        def check_for_errors(self):
+            for bus in self.bus_data:
+                for key, value in bus.items():
+                    if type(value) == type(self.rules[key]):
+                        if key == 'stop_type':
+                            if len(value) > 1:
+                                self.errors[key] += 1
+                        elif self.rules[key] != 0 and not bool(value):
+                            self.errors[key] += 1
+                    else:
+                        self.errors[key] += 1
+
+        def display_errors(self):
+            total_errors = sum(self.errors.values())
+            # if total_errors:
+            print(f'Type and required field validation: {total_errors} errors')
+
+            for key, value in self.errors.items():
+                print(f"{key}: {value}")
+
+
+    json_string_input = input().strip()
+    rider = RiderBus(json_string_input)
+    rider.check_for_errors()
+    rider.display_errors()
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/10889#comment
 status: Failed

@@ -2,3 +2,4 @@ content:
 - User-defined exceptions
 - Testing user input
 - Debugging in shell
+- The pprint module
